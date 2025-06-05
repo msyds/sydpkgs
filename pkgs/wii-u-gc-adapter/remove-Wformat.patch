@@ -1,0 +1,10 @@
+diff --git a/Makefile b/Makefile
+index a00f13a..f13d0c2 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,4 +1,4 @@
+-CFLAGS  += -Wall -Wextra -pedantic -Wno-format -std=c99 $(shell pkg-config --cflags libusb-1.0) $(shell pkg-config --cflags udev)
++CFLAGS  += -Wall -Wextra -Wformat -std=c99 $(shell pkg-config --cflags libusb-1.0) $(shell pkg-config --cflags udev)
+ LDFLAGS += -lpthread -ludev $(shell pkg-config --libs libusb-1.0) $(shell pkg-config --libs udev)
+ 
+ ifeq ($(DEBUG), 1)

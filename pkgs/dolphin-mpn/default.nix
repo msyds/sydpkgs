@@ -1,9 +1,9 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ dolphin-emu, fetchFromGitHub }:
 
-pkgs.dolphin-emu.overrideAttrs (prev: final: {
+dolphin-emu.overrideAttrs (prev: final: {
   pname = "Dolphin-MPN";
   version = "0712d84";
-  src = pkgs.fetchFromGitHub {
+  src = fetchFromGitHub {
     owner = "MarioPartyNetplay";
     repo = "Dolphin-MPN";
     rev = "0712d84c74f696791acf02df4c22e88741665da6";

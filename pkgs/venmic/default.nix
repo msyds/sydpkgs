@@ -96,6 +96,10 @@ let
       pulseaudio
       pipewire
     ];
-  };
 
+    installPhase = ''
+      mkdir -p $out/bin
+      mv server/venmic-server $out/bin
+    '';
+  };
 in venmic

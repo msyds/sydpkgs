@@ -18,8 +18,8 @@ python3Packages.buildPythonApplication rec {
     hash = "sha256-a+4DGWBD5XLaNAfTN/fmI/gALe76SCoWrnjyglNhVPY=";
   };
 
-  build-system = with python3Packages; [
-    setuptools
+  build-system = [
+    python3Packages.setuptools
   ];
 
   dependencies = [];

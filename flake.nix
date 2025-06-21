@@ -5,19 +5,19 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   };
 
-  outputs = { self, nixpkgs }:
+  outputs = inputs@{ self, ... }:
     let
-      forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
-    in
-    {
+      lib = inputs.nixpkgs.lib;
+      forAllSystems = lib.genAttrs lib.systems.flakeExposed;
+    in {
       legacyPackages = forAllSystems (system: import ./default.nix {
-        pkgs = import nixpkgs { inherit system; };
+        pkgs = import inputs.nixpkgs { inherit system; };
       });
 
       packages =
         forAllSystems (system:
-          nixpkgs.lib.filterAttrs
-            (_: v: nixpkgs.lib.isDerivation v)
+          lib.filterAttrs
+            (_: v: lib.isDerivation v)
             self.legacyPackages.${system});
     };
 }

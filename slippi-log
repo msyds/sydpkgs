@@ -1,0 +1,30 @@
+20:37:29.048 (dolphin/ishiiInstallation)    › Found existing netplay Dolphin executable.
+20:37:29.048 (dolphin/ishiiInstallation)    › Checking if we need to update netplay Dolphin
+20:37:30.446 (dolphin/ishiiInstallation)    › netplay Dolphin installation is outdated. Downloading latest...
+20:37:30.447                                › Downloading https://github.com/project-slippi/Ishiiruka/releases/download/v3.4.6/FM-Slippi-3.4.6-Linux.zip to /home/crumb/.config/Slippi Launcher/temp/FM-Slippi-3.4.6-Linux.zip
+20:37:30.453 (dolphin/ishiiInstallation)    › Found existing playback Dolphin executable.
+20:37:30.453 (dolphin/ishiiInstallation)    › Checking if we need to update playback Dolphin
+20:37:31.131 (dolphin/ishiiInstallation)    › playback Dolphin installation is outdated. Downloading latest...
+20:37:31.132                                › Downloading https://github.com/project-slippi/Ishiiruka-Playback/releases/download/v3.4.6/playback-3.4.6-Linux.zip to /home/crumb/.config/Slippi Launcher/temp/playback-3.4.6-Linux.zip
+20:37:31.985 (main/github)                  › Checking cache for: https://api.github.com/repos/project-slippi/Ishiiruka/releases
+20:37:31.986 (main/github)                  › Fetching: https://api.github.com/repos/project-slippi/Ishiiruka/releases
+20:37:31.988 (main/github)                  › Checking cache for: https://api.github.com/repos/project-slippi/slippi-launcher/releases
+20:37:31.988 (main/github)                  › Fetching: https://api.github.com/repos/project-slippi/slippi-launcher/releases
+20:37:31.988 (main/github)                  › Checking cache for: https://api.github.com/repos/project-slippi/dolphin/releases
+20:37:31.988 (main/github)                  › Fetching: https://api.github.com/repos/project-slippi/dolphin/releases
+20:37:31.989 (main/bluesky)                 › Checking cache for: https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?actor=did%3Aplc%3A6xwud4csg7p7243ptrc5sa5y
+20:37:31.990 (main/bluesky)                 › Fetching: https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?actor=did%3Aplc%3A6xwud4csg7p7243ptrc5sa5y
+20:39:20.482                                › Successfully downloaded https://github.com/project-slippi/Ishiiruka-Playback/releases/download/v3.4.6/playback-3.4.6-Linux.zip to /home/crumb/.config/Slippi Launcher/temp/playback-3.4.6-Linux.zip
+20:39:20.483 (dolphin/ishiiInstallation)    › Installing v3.4.6 playback Dolphin...
+No existing AppImage found
+Setting executable permissions...
+20:39:21.943 (dolphin/ishiiInstallation)    › Finished v3.4.6 playback Dolphin install
+20:40:01.361                                › Successfully downloaded https://github.com/project-slippi/Ishiiruka/releases/download/v3.4.6/FM-Slippi-3.4.6-Linux.zip to /home/crumb/.config/Slippi Launcher/temp/FM-Slippi-3.4.6-Linux.zip
+20:40:01.361 (dolphin/ishiiInstallation)    › Installing v3.4.6 netplay Dolphin...
+No existing AppImage found
+Setting executable permissions...
+20:40:02.970 (dolphin/ishiiInstallation)    › Finished v3.4.6 netplay Dolphin install
+20:41:19.468 (dolphin/manager)              › Launching dolphin at path: /home/crumb/.config/Slippi Launcher/netplay/Slippi_Online-x86_64.AppImage
+20:41:20.049 (dolphin/manager)              › Dolphin exit code: 1
+20:41:20.051 (dolphin/manager)              › Dolphin exit signal: undefined
+20:41:20.546 (dolphin/instance)             › Received Dolphin stderr message: /home/crumb/.cache/appimage-run/f81347d3673372b3a06916cd7412c77faac6a150f71d60a972351fa56ed52521/AppRun.wrapped: /usr/lib/libcurl.so.4: version `CURL_OPENSSL_4' not found (required by /home/crumb/.cache/appimage-run/f81347d3673372b3a06916cd7412c77faac6a150f71d60a972351fa56ed52521/AppRun.wrapped)

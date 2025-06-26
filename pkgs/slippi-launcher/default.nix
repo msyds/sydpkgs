@@ -1,7 +1,10 @@
 { lib
 , appimageTools
 , fetchurl
+, fuse
+, bash
 , breakpointHook
+, makeWrapper
 }:
 
 appimageTools.wrapType2 rec {
@@ -15,11 +18,28 @@ appimageTools.wrapType2 rec {
 
   nativeBuildInputs = [
     breakpointHook
+    makeWrapper
+  ];
+
+  extraPkgs = pkgs: [
+    pkgs.fuse
+    pkgs.bintools
+    pkgs.patchelf
+    ((pkgs.curl.override {
+      opensslSupport = true;
+      gnutlsSupport = false;
+    }).overrideAttrs (final: prev: {
+      meta.prio = lib.highPrio;
+    }))
+    pkgs.openssl
   ];
 
   extraInstallCommands = ''
+    wrapProgram $out/bin/slippi-launcher \
+      --set FUSERMOUNT_PROG "${fuse}/bin/fusermount"
   '';
 
+  # note to madddy./.. DELETE "ubuntu is stupid" LINE FROM ~/.cache/appimage-run/XXXXX/shell-hooks/a
   meta = {
     description = "The way to play Slippi Online and watch replays.";
     homepage = "https://github.com/project-slippi/slippi-launcher";

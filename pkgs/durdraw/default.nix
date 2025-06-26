@@ -6,9 +6,11 @@
 , ansilove
 }:
 
-python3Packages.buildPythonApplication rec {
-  pname = "durdraw";
+let
   version = "0.29.0";
+in python3Packages.buildPythonApplication {
+  pname = "durdraw";
+  inherit version;
   pyproject = true;
 
   src = fetchFromGitHub {
@@ -34,7 +36,8 @@ python3Packages.buildPythonApplication rec {
   '';
 
   meta = {
-    changelog = "https://github.com/cmang/durdraw/releases/tag/${version}";
+    changelog =
+      "https://github.com/cmang/durdraw/releases/tag/${version}";
     description = ''
       Versatile ASCII and ANSI Art text editor for drawing in the
       Linux/Unix/macOS terminal, with animation, 256 and 16 colors, Unicode and

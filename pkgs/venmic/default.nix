@@ -61,7 +61,7 @@ let
     '';
 
     outputHashAlgo = "sha256";
-    outputHash = "sha256-KIkf3bg1+vbGaYo/QTtOF7bUQVZH8vrBPNejk3EbNuA=";
+    outputHash = "sha256-J/uctyoqC2j58TYemjRBtOMMXz70e8uv/VeA+vq8WVY=";
   };
 
   venmic = stdenv.mkDerivation {

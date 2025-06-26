@@ -24,7 +24,7 @@ let
     hash = "sha256-0UP8a2bfhWGsB2Lg/GeIBu4zw1zHnXbitT8vU+DLeEY=";
   };
 
-  venmic-deps = stdenv.mkDerivation {
+  venmicDeps = stdenv.mkDerivation {
     name = "venmic-deps-${version}.tar.gz";
 
     inherit src;
@@ -52,6 +52,10 @@ let
     ];
 
     installPhase = ''
+      # Remove .git directories.  For reasons unknown to me, they are a source
+      # of indeterminism.
+      find "${depsDir}" -type d -name '.git' -exec rm -rf {} +
+
       # Build a reproducible tarball, per
       # https://reproducible-builds.org/docs/archives.
       tar --owner=0 --group=0 --numeric-owner --format=gnu \
@@ -61,17 +65,17 @@ let
     '';
 
     outputHashAlgo = "sha256";
-    outputHash = "sha256-J/uctyoqC2j58TYemjRBtOMMXz70e8uv/VeA+vq8WVY=";
+    outputHash = "sha256-cnkqZbSnxFFwDy0zNo4QuQQCaT0dav3V8TDjzZ4mMFA=";
   };
 
-  venmic = stdenv.mkDerivation {
-    pname = "venmic";
-    inherit version src;
+  venmic-server = stdenv.mkDerivation {
+    pname = "venmic-server";
+    inherit version src venmicDeps;
 
     postUnpack = ''
       # Bring in the cached CPM deps.
       mkdir -p $sourceRoot/build
-      tar xzf ${venmic-deps} -C $sourceRoot/build
+      tar xzf "$venmicDeps" -C $sourceRoot/build
 
       # Bring in CPM itself — Venmic tries to download it itself.
       rm $sourceRoot/cmake/cpm.cmake
@@ -102,4 +106,4 @@ let
       mv server/venmic-server $out/bin
     '';
   };
-in venmic
+in venmic-server

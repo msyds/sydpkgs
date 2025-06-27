@@ -10,4 +10,5 @@ dolphin-emu.overrideAttrs (prev: final: {
     hash = "sha256-dhcLJCQzd7a0l3AVFFVxfQ95sVql5N4e63xdvl7h9uc=";
     fetchSubmodules = true;
   };
+  meta.broken = true;
 })

@@ -51,7 +51,8 @@ python3Packages.buildPythonApplication (lib.fix (finalAttrs: {
       Linux/Unix/macOS terminal, with animation, 256 and 16 colors, Unicode and
       CP437, and customizable themes.
     '';
-    homepage = "https://github.com/cmang/durdraw/";
+    homepage = "https://durdraw.org";
     license = lib.licenses.bsd3;
+    mainProgram = "durdraw";
   };
 }))

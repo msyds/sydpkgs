@@ -6,17 +6,20 @@
 , ansilove
 }:
 
-let
-  version = "0.29.0";
-in python3Packages.buildPythonApplication {
+# We use `fix` explicitly since `buildPythonApplication` rejects the typical
+#   stdenv.mkDerivation (finalAttrs: {
+#     ...
+#   })
+# syntax.
+python3Packages.buildPythonApplication (lib.fix (finalAttrs: {
   pname = "durdraw";
-  inherit version;
+  version = "0.29.0";
   pyproject = true;
 
   src = fetchFromGitHub {
     owner = "cmang";
     repo = "durdraw";
-    rev = version;
+    rev = finalAttrs.version;
     hash = "sha256-a+4DGWBD5XLaNAfTN/fmI/gALe76SCoWrnjyglNhVPY=";
   };
 
@@ -24,7 +27,12 @@ in python3Packages.buildPythonApplication {
     python3Packages.setuptools
   ];
 
-  dependencies = [];
+  dependencies =
+    lib.optionals withGifExport finalAttrs.optional-dependencies.gif-export;
+
+  optional-dependencies.gif-export = [
+    python3Packages.pillow
+  ];
 
   nativeBuildInputs = [
     makeWrapper
@@ -37,7 +45,7 @@ in python3Packages.buildPythonApplication {
 
   meta = {
     changelog =
-      "https://github.com/cmang/durdraw/releases/tag/${version}";
+      "https://github.com/cmang/durdraw/releases/tag/${finalAttrs.version}";
     description = ''
       Versatile ASCII and ANSI Art text editor for drawing in the
       Linux/Unix/macOS terminal, with animation, 256 and 16 colors, Unicode and
@@ -46,4 +54,4 @@ in python3Packages.buildPythonApplication {
     homepage = "https://github.com/cmang/durdraw/";
     license = lib.licenses.bsd3;
   };
-}
+}))

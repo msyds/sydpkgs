@@ -179,5 +179,6 @@ stdenv.mkDerivation (final: {
     changelog =
       "https://github.com/project-slippi/slippi-launcher/releases/tag/v${final.version}";
     platforms = lib.platforms.all;
+    broken = true;
   };
 })

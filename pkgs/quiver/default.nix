@@ -54,4 +54,12 @@ in stdenv.mkDerivation (final: {
   buildInputs = [
     nodejs_20
   ];
+  meta = {
+    description = ''
+      A modern commutative diagram editor for the web. 
+    '';
+    homepage = "https://q.uiver.app/";
+    license = lib.licenses.mit;
+    platforms = lib.platforms.unix;
+  };
 })

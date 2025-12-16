@@ -1,0 +1,10 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{syd-plex}[2014/08/24 Configure IBM Plex fonts]
+
+% Redefine some commands to make unicode-math work lol.  See §3.1 of the
+% unicode-math manual.
+\renewcommand*{\mathrm}[1]{\symup{#1}}
+
+\RequirePackage{plex-otf}
+\setmathfont{IBM Plex Math}
+\setmainfont{IBM Plex Serif}

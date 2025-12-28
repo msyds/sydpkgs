@@ -19,5 +19,7 @@
           lib.filterAttrs
             (_: v: lib.isDerivation v)
             self.legacyPackages.${system});
+
+      overlays.default = import ./overlay.nix;
     };
 }

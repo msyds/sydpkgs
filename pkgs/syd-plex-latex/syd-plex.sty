@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{syd-plex}[2014/08/24 Configure IBM Plex fonts]
+\ProvidesPackage{syd-plex}[2025/12/01 Configure IBM Plex fonts]
 
 % Redefine some commands to make unicode-math work lol.  See §3.1 of the
 % unicode-math manual.
@@ -8,3 +8,6 @@
 \RequirePackage{plex-otf}
 \setmathfont{IBM Plex Math}
 \setmainfont{IBM Plex Serif}
+
+% Use sans-serif for \operatorname
+\setoperatorfont\mathsf

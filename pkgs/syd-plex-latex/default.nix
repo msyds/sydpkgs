@@ -18,6 +18,7 @@ stdenvNoCC.mkDerivation (final: {
       fontspec
       xltxtra
       realscripts
+      xecjk
     ];
     tlType = "run";
   };

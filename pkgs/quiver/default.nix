@@ -1,4 +1,12 @@
-{ stdenv, fetchNpmDeps, fetchFromGitHub, fetchzip, fetchurl, lib, imagemagick, nodejs_20 }:
+{ stdenv
+, fetchNpmDeps
+, fetchFromGitHub
+, fetchzip
+, fetchurl
+, lib
+, imagemagick
+, nodejs_20
+}:
 
 let
   vendoredKatex = fetchzip {
@@ -13,7 +21,7 @@ let
     url = "https://storage.googleapis.com/workbox-cdn/releases/7.0.0/workbox-window.prod.mjs.map";
     hash = "sha256-tUBiVoiKi3OCT+wctUYl0FVnT7StsGBDx7EzculcF5I=";
   };
-  rev = "9872f3f9265f92643387239e76042c8d3ffeb410";
+  rev = "1816fb788e4d315bf1dc30053a5e1646eb0af9b8";
 in stdenv.mkDerivation (final: {
   pname = "quiver";
   version = lib.substring 0 7 rev;
@@ -22,11 +30,11 @@ in stdenv.mkDerivation (final: {
     owner = "varkor";
     repo = "quiver";
     inherit rev;
-    hash = "sha256-wSyCzUSLUL5nzUe5E4RdWv44WGd4C9WO6udkKY9cyBs=";
+    hash = "sha256-29x2x0fLemkxhv+85wPnDrrlRW2h5qJtF/QTbGa6ghE=";
   };
   npmDeps = fetchNpmDeps {
     src = "${final.src}/service-worker";
-    hash = "sha256-xlww7Yfle58Qdwn/IcA6E6Fy7ZvH/ltKdlk6hvcC4UM=";
+    hash = "sha256-1CdgZFvpyJFyh5x9ljTau6vrR7FeHRYZ1MG/ZOEoou8=";
   };
   preBuild = ''
     cp -r $vendoredKatex src/KaTeX
